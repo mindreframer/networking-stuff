@@ -1,0 +1,17 @@
+#!/bin/sh
+
+grep <%= real_tinc_bridge_interface %> /proc/net/dev | awk -F: '{ print $1 }' | grep -q <%= real_tinc_bridge_interface %>
+if [ $? -gt 0 ]; then
+  brctl addbr <%= real_tinc_bridge_interface %>
+  ifconfig <%= tinc_internal_interface %> 0.0.0.0
+  ifconfig <%= real_tinc_bridge_interface %> <%= real_tinc_internal_ip %> netmask 255.255.255.0
+  brctl addif <%= real_tinc_bridge_interface %> <%= tinc_internal_interface %>
+  ifconfig <%= tinc_internal_interface %> up
+fi
+
+ifconfig $INTERFACE 0.0.0.0
+brctl addif <%= real_tinc_bridge_interface %> $INTERFACE
+ifconfig $INTERFACE up
+<% if override_mtu -%>
+ifconfig $INTERFACE mtu <%= override_mtu.to_i %>
+<% end -%>
