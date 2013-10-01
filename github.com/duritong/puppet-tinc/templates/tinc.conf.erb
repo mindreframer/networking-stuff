@@ -1,0 +1,12 @@
+Name = <%= fqdn_tinc %>
+AddressFamily = ipv4
+Device = /dev/net/tun
+#PMTU = 1440
+Mode = switch
+#Mode = router
+
+BindToInterface = <%= tinc_interface.to_s %>
+
+<% tinc_hosts.to_a.reject{|h| h.to_s == scope.lookupvar('::fqdn') }.each do |connect_to_host| -%>
+ConnectTo = <%= connect_to_host %>
+<% end -%>
