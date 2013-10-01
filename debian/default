@@ -1,0 +1,19 @@
+# Defaults for chaosvpn initscript
+# sourced by /etc/init.d/chaosvpn
+# installed at /etc/default/chaosvpn by the maintainer scripts
+
+#
+# This is a POSIX shell fragment
+#
+
+# which networks to startup, each one needs its own config file
+# put them in /etc/tinc and specify their names here seperated by whitespaces
+#
+# The defaults are:
+#   chaosvpn.conf   - to participate on chaosvpn connecting hackerspaces
+#   warzone.conf    - to participate on warzone/CTF/experiments network
+#
+CONFIGS="chaosvpn.conf"
+
+# should we start automatically at boot?
+RUN="no"
