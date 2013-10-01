@@ -17,11 +17,13 @@ make install
 
 
 ## Tutorials/Posts
+  - [Poor man's Proxmox cluster with NAT, 2013.08 - extensive writeup for ](http://forum.ovh.co.uk/showthread.php?t=7071)
   - [Example: IPv6 Networking, 2007](http://www.tinc-vpn.org/examples/ipv6-network/)
   - [Static IP Tinc VPN on Debian Wheezy](http://blog.philippgoecke.de/?p=651)
   - http://blogs.operationaldynamics.com/andrew/software/research/using-tinc-vpn
   - [inc: the difficulties of a peer-to-peer VPN on the hostile Internet](http://www.youtube.com/watch?v=R7P_vvz1AP8)
   - [l2mesh is a tinc based virtual switch, implemented as a puppet module.](http://redmine.the.re/l2mesh/l2mesh.html)
+
 
   - http://blog.chr.istoph.de/tag/tinc/
   - http://www.linux-magazin.de/Ausgaben/2003/10/Einfache-Verbindung
