@@ -1,0 +1,223 @@
+chaosvpn (2.18~alpha-0) unstable; urgency=low
+
+  * Include chaosvpn.conf template for OpenBSD.
+  * Do not automatically restart tincd if it aborted cleanly with
+    a fatal error.
+    Can happen for example with config incompatibilities between tinc
+    and chaosvpn, or if two instances of the same node are running on
+    two different hosts and the conflict-resolution in tinc decided
+    to kill one.
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Thu, 01 Aug 2013 19:42:44 +0200
+
+chaosvpn (2.17-0) unstable; urgency=low
+
+  * addrmask_parse(): Fixed IP address parsing under OpenWRT by setting a
+    missing ai_socktype for getaddrinfo() calls.
+    Thanks to Thorben Went for debugging this.
+  * addrmask.c: Fixed compile error on FreeBSD by including missing
+    netinet/in.h
+  * Fixed handling of nodes marked as silent=1
+  * Added a couple of Apple OSX workarounds.
+  * Added "make appleinstall" Makefile target.
+  * More FreeBSD fixes.
+  * Allow $tincd_bin to be specified as a relative path, searching for
+    it in $PATH
+  * tinc 1.1pre support: Starting with current git (and 1.1pre7) the binary
+    that was called 'tincctl' is now just called 'tinc'. So change the
+    default value and introduce new $tincctl_bin config variable.
+  * warn only once about each unknown remote configstatement
+  * support new central config statement ecdsapublickey= and if present
+    and using tinc 1.1pre+ save it to hosts files.
+  * Allow pingtest= in central config, but ignore it in client.
+    (May be used later to automatically build icinga config or something
+    like this)
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Fri, 12 Jul 2013 00:03:46 +0200
+
+chaosvpn (2.15-0) unstable; urgency=low
+
+  * Restore previous subnet-up/down behaviour for non-windows compiles.
+  * addrmask.c: fix parsing and printing of ip addresses, got broken
+    when implementing compiling under windows.
+  * tinc.c: ensure all the strings used as char* are zero terminated.
+  * make deb: fix to work with git tags starting with a "v" like "v2.14"
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Thu, 20 Sep 2012 21:16:21 +0200
+
+chaosvpn (2.14-0) unstable; urgency=low
+
+  * Disable forwarding of broadcast packets - right now we have OSPF
+    traffic on the VPN creating useless traffic.
+  * Letting tinc use ipv6 as the transport protocol only creates problems
+    for now, so reduced transport protocol to ipv4 only.
+  * FreeBSD compilation fixes.
+  * Windows compilation works for the first time, thanks to Guus!
+    (But support not finished yet)
+  * Compiled Debian Wheezy and Unstable packages with hardening enabled.
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Tue, 28 Aug 2012 12:38:47 +0200
+
+chaosvpn (2.12-0) unstable; urgency=low
+
+  * Support (and use by default) tinc 1.0.17+ option LocalDiscovery=yes
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Sat, 10 Mar 2012 16:03:34 +0100
+
+chaosvpn (2.11-0) unstable; urgency=low
+
+  * Do not write Address= lines in tinc hosts files for hidden=1 nodes.
+  * New config option $tincd_raw_config
+  * Change default of AddressFamily back to 'ipv4'.
+    The previous default of 'any' creates reachability problems for nodes
+    reachable over ipv4 and ipv6 talking to ipv4-only nodes.
+  * Some smaller internal changes.
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Mon, 18 Jul 2011 12:59:36 +0200
+
+chaosvpn (2.10-0) unstable; urgency=low
+
+  * Lots of bugfixes.
+  * Configuration option tincd_user to run tincd as non-root
+    (Currently not active in the debian package, to be fixed)
+  * Rework structure: make main chaosvpn process *completely* unprivileged
+    (Currently not active in the debian package, to be fixed)
+  * Option for the local admin to merge lots of chaosvpn routes into a
+    small number of bigger supernet routes.
+  * Option for the local admin to blacklist/whitelist routes received from
+    the vpn.
+  * Debian packaging switched from crontab/oneshot mode to daemon mode.
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Fri, 27 May 2011 17:03:43 +0200
+
+chaosvpn (2.06-0) unstable; urgency=low
+
+  * Check that the OpenSSL headers used match the version of the
+    OpenSSL library used.
+    Output a warning if not.
+    (Suggestion from wopot)
+  * Added dependency to iproute package, needed for routing setup.
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Thu, 27 Jan 2011 01:10:16 +0100
+
+chaosvpn (2.05-0) unstable; urgency=low
+
+  * Fixing segfault in log.c on 64bit linux (32bit linux worked).
+    The combination of va_start(), vsyslog(), vfprintf(), va_end()
+    seems invalid using 64bit glibc, in 32bit using the same version
+    everything is great.
+    va_start(), vsyslog(), va_end(), va_start(), vfprintf(), va_end()
+    seems to work on both architectures.
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Mon, 22 Nov 2010 00:25:17 +0100
+
+chaosvpn (2.04-1) unstable; urgency=low
+
+  * Logging changes: do not output everything to stderr, only errors.
+    Way nicer for cronjobs.
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Sun, 21 Nov 2010 22:06:01 +0100
+
+chaosvpn (2.03-1) unstable; urgency=low
+
+  * dash does not support $RADOM, which is used in Debian cronjob.
+    Package now requires bash instead until I find a better solution.
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Sun, 21 Nov 2010 21:31:07 +0100
+
+chaosvpn (2.02-1) unstable; urgency=low
+
+  * Busybox ash does not support "case" statement fall-through, repeat
+    the needed blocks instead.
+    Repairs $use_dynamic_routes feature on embedded machines.
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Thu, 11 Nov 2010 17:11:02 +0100
+
+chaosvpn (2.01-0) unstable; urgency=low
+
+  * Configfile parser fixups.
+  * Make default configfiles a little bit simpler.
+  * Manpage: mark $my_vpn_netmask as obsolete and move it to the bottom.
+  * Allow admin to create tinc-up.local and tinc-down.local
+  * Allow admin to create subnet-up.local and subnet-down.local
+  * Fix test for httplib
+  * Instantly abort on parse errors
+  * crypto.c: Unlink tempfiles, do not let them lie around.
+  * Standards-Version: 3.9.1
+  * Renamed config option "-a" to "-o" for 'oneshot mode' - describes
+    better what it is really doing.
+  * Renamed config option "-f" to "-r" for 'keep running'.
+  * New commandline option "-d" for a real daemon mode with forking into
+    the background.
+  * Redirected (nearly) all output messages to syslog.
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Wed, 13 Oct 2010 23:03:41 +0200
+
+chaosvpn (2.0-0) unstable; urgency=low
+
+  * Finally released chaosvpn 2.0
+  * Only create meta connections to a selected subset of nodes ("primary")
+    when using tinc newer than 1.0.12, less load and tcp connections
+    on end nodes.
+    This breaks communication with nodes using tinc 1.0.12 and older,
+    use config option $connect_only_to_primary_nodes=0 for old method
+    of connecting to all non-hidden nodes.
+  * New experimental config option $use_dynamic_routes
+  * Optional configfile settings to specify VPN network interface name
+    and path to tuntap device.
+  * Include support to use tinc 1.1-git
+  * Some basic compile fixes for FreeBSD
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Sun, 11 Apr 2010 17:48:44 +0200
+
+chaosvpn (2.0~rc11-0.0) unstable; urgency=low
+
+  * Replace usage of TunnelServer=yes with StrictSubnets=yes
+    for tinc >> 1.0.12
+  * Documentation and manpage updates.
+  * Makefile changes for easier OpenWRT porting.
+  * Debian: fix calls to invoke-rc.d, repair daily config reloads.
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Sun, 07 Mar 2010 10:53:01 +0100
+
+chaosvpn (2.0~rc10-0.0) unstable; urgency=low
+
+  * Multiple bugfixes
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Fri, 19 Feb 2010 23:05:29 +0100
+
+chaosvpn (2.0~rc9-0.0) unstable; urgency=low
+
+  * Note: starting with this version we receive a different formatted data
+    from the central server.
+  * Note2: you need to incorporate some changes into your chaosvpn.conf
+
+  * Data on the Server is now signed by a central master key, and then
+    encrypted using the public part of our tinc key, and then all
+    of this transmitted in one http request.
+  * Usage of libcurl has been replaced by a small http get library.
+  * In Daemon-Mode config re-fetching has been implemented.
+  * Some memory leaks (mostly in error paths) have been fixed.
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Thu, 28 Jan 2010 18:32:28 +0100
+
+chaosvpn (2.0~rc8-0.0) unstable; urgency=low
+
+  * The major TODO of verifying a signature on the central configfile
+    is finished, and lots of more changes.
+  * The debian package buildscripts shouldn't need debhelper and quilt
+    backports anymore, Lenny is enough.
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Mon, 18 Jan 2010 22:48:04 +0100
+
+chaosvpn (2.0~rc5-0.0) unstable; urgency=low
+
+  * 2.0-rc5
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Sun, 27 Dec 2009 23:41:46 +0100
+
+chaosvpn (2.0~rc3-0.0) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Sven-Haegar Koch <haegar@sdinet.de>  Sat, 12 Dec 2009 01:28:08 +0100

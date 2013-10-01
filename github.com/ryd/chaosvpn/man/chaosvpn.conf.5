@@ -1,0 +1,188 @@
+.TH CHAOSVPN 5 "March 2012" "Discordian coreutils" ""
+.SH NAME
+chaosvpn.conf - configuration file for chaosvpn
+.SH DESCRIPTION
+.B chaosvpn.conf
+configures the behavior of the config generator.
+.PP
+This config file is written in a perl-like syntax. The reason for that
+was chaosvpn 1.0, which was written in perl.
+.PP
+The default location for this file is the /etc/tinc/ directory. Another
+location and file name is also possible and you can point the chaosvpn(1)
+application with a parameter to a different location, or file name. On
+other operating systems, like BSDs, the location may be /usr/local/etc/tinc/.
+.SH CONFIG
+.B $my_peerid
+.RS 4
+.PP
+This is your network name - it has to be unique in the master configuration.
+.PP
+.RE
+.B $my_vpn_ip
+.RS 4
+.PP
+Your IPv4 address within the network.
+.PP
+.RE
+.B $my_vpn_ip6
+.RS 4
+.PP
+Your IPv6 address of the VPN interface on your node/gateway. If you do
+not use IPv6, leave this field empty.
+.PP
+.RE
+.B $my_ip
+.RS 4
+.PP
+The public IP address on which the tincd daemon will listen. Leave this empty to listen on all
+interfaces (0.0.0.0). Make sure that you open the necessary ports on an existing firewall.
+.PP
+.RE
+.B $my_addressfamily
+(optional)
+.RS 4
+.PP
+The address family to use for listening and outgoing connections. May be one
+of 'ipv4', 'ipv6' or 'any'. 'any' is the default to use what is available.
+.PP
+.RE
+.B @exclude
+.RS 4
+.PP
+The exclude parameter can contain a list of node names. A VPN connection
+will not established to them. You may want to use it if you have another
+VPN, or direct connection to these nodes.
+.PP
+.RE
+.B $networkname
+.RS 4
+.PP
+Name of you config in tinc. For CCC ChaosVPN set this to "chaos".
+.PP
+.RE
+.B $tincd_bin
+(optional)
+.RS 4
+.PP
+Path to tincd executable. Default is "tincd".
+.PP
+.RE
+.B $tincctl_bin
+(optional)
+.RS 4
+.PP
+Only for tinc 1.1pre and later - path to tinc tool executable. Default is "tinc".
+.PP
+.RE
+.B $routemetric
+.RS 4
+.PP
+Metric of all routes through the ChaosVPN interface. Only needed if you
+wanna build up redudant routes. Keep this at "0" unless you know why
+you change it.
+.PP
+.RE
+.B $routeadd
+.br
+.B $routeadd6
+.RS 4
+.PP
+Commands to setup the network routes. These may be different on other operating systems.
+.PP
+.RE
+.B $ifconfig
+.br
+.B $ifconfig6
+.RS 4
+.PP
+Commands to setup IP address and netmask for IPv4 and IPv6. This may be different
+on other operating systems too.
+.PP
+.RE
+.B $master_url
+.RS 4
+.PP
+URL to get the master configuration file. Default is configured to CCC ChaosVPN.
+.PP
+.RE
+.B $masterdata_signkey
+(optional)
+.RS 4
+.PP
+Public Key to verify data from master URL. If no key is defined, it will fall back to
+cleartext transport - this will not work for CCC ChaosVPN.
+.PP
+.RE
+.B $base
+.RS 4
+.PP
+Location of the generated tinc configuration.
+.PP
+.RE
+.B $pidfile
+.RS 4
+.PP
+Location of the ProcessID file to ensure tincd process is running only once.
+.PP
+.RE
+.B $tincd_debuglevel
+(optional)
+.RS 4
+.PP
+Debuglevel of the tincd output. More details in tincd documentation.
+.PP
+.RE
+.B $tincd_restart_delay
+(optional)
+.RS 4
+.PP
+Number of seconds to wait before tincd is restarted after it has
+unexpectedly terminated.
+.PP
+.RE
+.B $update_interval
+(optional)
+.RS 4
+.PP
+Number of seconds to wait between refetching the remote config. Default is 3600 seconds.
+.RE
+.B $use_dynamic_routes
+(optional, experimental, special usecases only)
+.RS 4
+.PP
+Normally all network routes to vpn subnets are setup at tinc start. Using this special configuration flag subnet routes are added and removed as subnets become reachable or unreachable at runtime. This needs more CPU power at runtime, and could result in VPN traffic going outside around the VPN when the target node is unreachable at the moment. Use with care and only in special circumstances.
+.PP
+.RE
+.B $connect_only_to_primary_nodes
+(optional, default=1)
+.RS 4
+.PP
+Only create tinc metadata connections to primary nodes (UDP data still flows directly if possible). As this greatly reduces load and connection-churn on small devices this is the default when using together with tinc 1.0.13+. Disable (set to 0) this on primary nodes or if connections to old (pre 1.0.13) tinc is important.
+.PP
+.RE
+.B $localdiscovery
+(optional, default=1)
+.RS 4
+.PP
+Supported with tinc 1.0.17 and newer, Add LocalDiscovery option allowing tinc to detect peers that are behind the same NAT.
+.PP
+.RE
+.B $tincd_interface and $tincd_device
+(optional, special usecases only)
+.RS 4
+.PP
+Manually specify the VPN interface name or tuntap device. Normally the defaults of interface name and tuntap path should work for everyone. See tinc.conf manpage about Device= and Interface= for further infos.
+.PP
+.RE
+.B $my_vpn_netmask
+(obsolete)
+.RS 4
+.PP
+The netmask for your IPv4 address. If you only use one IP address in
+your network, or route the rest of your IP addresses to other devices
+use "255.255.255.255" - in 99% of all usages you should keep this at
+"255.255.255.255".
+.PP
+.SH SEE ALSO
+chaosvpn(5)
