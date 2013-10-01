@@ -15,10 +15,6 @@
       Puppet module for Tinc
        18 commits, last change: , 0 stars, 3 forks
 
-    fourscouts/chef-tinc:
-
-        commits, last change: ,  stars,  forks
-
     Gorian/tinc-automation:
       scripts for automating deployment of tinc
        3 commits, last change: 2013-05-21 08:43:15, 0 stars, 0 forks
