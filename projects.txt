@@ -9,3 +9,4 @@ https://github.com/Myatu/puppet-l2mesh/.git
 https://github.com/ryd/chaosvpn.git
 https://github.com/yanosz/bbkeys.git
 https://github.com/Youscribe/tinc-cookbook.git
+https://github.com/guiambros/aws-cloud-init.git
