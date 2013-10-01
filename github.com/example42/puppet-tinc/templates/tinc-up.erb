@@ -1,0 +1,8 @@
+#!/bin/sh
+# File Managed by Puppet
+
+# Bridge Mode
+ifconfig $INTERFACE 0.0.0.0
+brctl addif bridge $INTERFACE
+ifconfig $INTERFACE up
+
