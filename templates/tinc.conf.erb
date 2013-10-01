@@ -1,0 +1,49 @@
+# File Managed by Puppet
+
+# The name of this tinc host. Required.
+Name = <%= scope.lookupvar('tinc::host_name') %>
+
+# The internet host(s) to connect with.
+# Comment these out to make yourself a listen-only connection
+# You must use the name of another tinc host.
+# May be used multiple times for redundance.
+<% if scope.lookupvar('tinc::array_connect_to') then -%>
+<% scope.lookupvar('tinc::array_connect_to').each do |sl| %>ConnectTo = <%= sl %> <% end %>
+<% end -%>
+
+# The tap device tinc will use.
+# Default is /dev/tap0 for ethertap or FreeBSD,
+# /dev/tun0 for Solaris and OpenBSD,
+# and /dev/net/tun for Linux tun/tap device.
+Device = /dev/net/<%= @device %>
+# DeviceType = type (platform dependent)
+# dummy raw_socket multicast uml vde tun tap
+
+# AddressFamily = ipv4
+# BindToAddress = address [port] [experimental]
+# BindToInterface = interface [experimental]
+# Broadcast = no | mst | direct (mst) [experimental]
+# DecrementTTL = yes | no (no) [experimental]
+# DirectOnly = yes | no (no) [experimental]
+# Forwarding = off | internal | kernel (internal) [experimental]
+# GraphDumpFile = filename [experimental]
+# Hostnames = yes | no (no)
+# IffOneQueue = yes | no (no) [experimental]
+# Interface = interface
+# KeyExpire = seconds (3600)
+# LocalDiscovery = yes | no (no) [experimental]
+# MACExpire = seconds (600)
+# MaxTimeout = seconds (900)
+# Mode = router | switch | hub (router)
+# PingInterval = seconds (60)
+# PingTimeout = seconds (5)
+# PriorityInheritance = yes | no (no) [experimental]
+# PrivateKeyFile = filename (/etc/tinc/NETNAME/rsa_key.priv)
+# ProcessPriority = low | normal | high
+# Proxy = socks4 | socks5 | http | exec ... [experimental]
+# ReplayWindow = bytes (16)
+# StrictSubnets = yes | no (no) [experimental]
+# TunnelServer = yes | no (no) [experimental]
+# UDPRcvBuf = bytes (OS default)
+# UDPSndBuf = bytes (OS default)
+#
