@@ -23,6 +23,10 @@
       a VPN daemon
        1,646 commits, last change: 2013-09-29 09:16:36, 67 stars, 17 forks
 
+    guiambros/aws-cloud-init:
+      AWS Cloud Initialization script (bash)
+       1 commits, last change: 2012-11-11 18:47:34, 2 stars, 3 forks
+
     jvasile/tinc-rollout:
       This script sets up or updates a host to connect to a tinc vpn. It allows you to start a network from scratch, join an existing network, decide which peers you will connect with, and can package up your tinc configuration so others can join the network too. This is aimed at users who just want to make a bunch of boxes talk to each other. It won'…
        22 commits, last change: , 0 stars, 1 forks
@@ -42,6 +46,10 @@
     ryd/chaosvpn:
       Config generator for chaos vpn
        799 commits, last change: 2013-09-10 16:41:33, 39 stars, 7 forks
+
+    trema/trema:
+      Full-Stack OpenFlow Framework in Ruby and C
+       2,724 commits, last change: 2013-09-30 05:22:46, 175 stars, 58 forks
 
     yanosz/bbkeys:
       tinc-keys for backbone vpn
