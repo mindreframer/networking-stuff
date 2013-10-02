@@ -10,3 +10,4 @@ https://github.com/ryd/chaosvpn.git
 https://github.com/yanosz/bbkeys.git
 https://github.com/Youscribe/tinc-cookbook.git
 https://github.com/guiambros/aws-cloud-init.git
+https://github.com/trema/trema.git
