@@ -1,3 +1,5 @@
+https://github.com/bluemonk/ipaddress.git
+https://github.com/bluemonk/net-dns.git
 https://github.com/duritong/puppet-tinc.git
 https://github.com/example42/puppet-tinc.git
 https://github.com/Gorian/tinc-automation.git
@@ -11,5 +13,3 @@ https://github.com/ryd/chaosvpn.git
 https://github.com/trema/trema.git
 https://github.com/yanosz/bbkeys.git
 https://github.com/Youscribe/tinc-cookbook.git
-https://github.com/bluemonk/ipaddress.git
-https://github.com/bluemonk/net-dns.git
