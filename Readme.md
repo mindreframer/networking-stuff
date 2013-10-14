@@ -7,11 +7,16 @@
 
 
 ## Some rather interesting projects
+  - https://github.com/rossjones/alternative-internet (!!!)
   - http://redecentralize.org/interviews/
-  - https://github.com/zerotier/ZeroTierOne
   - https://www.zerotier.com/
   - https://github.com/ntoll/drogulus
+  - https://github.com/cjdelisle/cjdns
+  - https://github.com/zerotier/ZeroTierOne
+  - http://projectmeshnet.org/
 
+
+  - https://news.ycombinator.com/item?id=6543846
 
 ## Posts / Presentations:
 
