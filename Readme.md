@@ -1,7 +1,9 @@
 # Networking
 
   Good basic overview:
-    - https://github.com/bluemonk/ipaddress/blob/master/README.rdoc
+
+  - [Guide to IP Layer Network Administration with Linux - very detailed](http://linux-ip.net/html/linux-ip.html)
+  - https://github.com/bluemonk/ipaddress/blob/master/README.rdoc
 
 
 
@@ -14,6 +16,7 @@
   - https://github.com/cjdelisle/cjdns
   - https://github.com/zerotier/ZeroTierOne
   - http://projectmeshnet.org/
+  - [forest-net- Overlay network for large, real-time distributed applications](https://code.google.com/p/forest-net/)
 
 
   - https://news.ycombinator.com/item?id=6543846
