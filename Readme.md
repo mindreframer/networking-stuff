@@ -29,11 +29,11 @@
 
     bluemonk/ipaddress:
       A library to handle IP (both IPv4 and IPv6) addresses in a modern and productive way.
-       104 commits, last change: 2011-05-24 05:04:15, 154 stars, 41 forks
+       115 commits, last change: 2013-10-27 04:02:39, 156 stars, 41 forks
 
     bluemonk/net-dns:
       Net::DNS is a DNS library written in Ruby.
-       174 commits, last change: 2013-05-08 05:26:16, 106 stars, 29 forks
+       174 commits, last change: 2013-05-08 05:26:16, 107 stars, 30 forks
 
     duritong/puppet-tinc:
       Puppet module to manage tinc - Automatic mirror of http://git.puppet.immerda.ch/?p=module-tinc.git
@@ -41,19 +41,19 @@
 
     example42/puppet-tinc:
       Puppet module for Tinc
-       18 commits, last change: , 0 stars, 3 forks
+       20 commits, last change: , 1 stars, 3 forks
 
     Gorian/tinc-automation:
       scripts for automating deployment of tinc
-       3 commits, last change: 2013-05-21 08:43:15, 0 stars, 0 forks
+       3 commits, last change: , 0 stars, 0 forks
 
     gsliepen/tinc:
       a VPN daemon
-       1,646 commits, last change: 2013-09-29 09:16:36, 67 stars, 17 forks
+       1,649 commits, last change: 2013-10-19 08:35:20, 69 stars, 18 forks
 
     guiambros/aws-cloud-init:
       AWS Cloud Initialization script (bash)
-       1 commits, last change: 2012-11-11 18:47:34, 2 stars, 3 forks
+       1 commits, last change: , 2 stars, 3 forks
 
     jvasile/tinc-rollout:
       This script sets up or updates a host to connect to a tinc vpn. It allows you to start a network from scratch, join an existing network, decide which peers you will connect with, and can package up your tinc configuration so others can join the network too. This is aimed at users who just want to make a bunch of boxes talk to each other. It won'…
@@ -69,15 +69,15 @@
 
     Myatu/puppet-l2mesh/:
       [Note: This is a fork from http://redmine.the.re/projects/l2mesh] - l2mesh is a tinc based virtual switch, implemented as a puppet module. It creates a new ethernet interface on the machine and connects it to the switch.
-       17 commits, last change: 2012-11-22 15:13:23, 2 stars, 1 forks
+       17 commits, last change: , 2 stars, 1 forks
 
     ryd/chaosvpn:
       Config generator for chaos vpn
-       799 commits, last change: 2013-09-10 16:41:33, 39 stars, 7 forks
+       823 commits, last change: 2013-10-22 18:13:01, 39 stars, 7 forks
 
     trema/trema:
       Full-Stack OpenFlow Framework in Ruby and C
-       2,724 commits, last change: 2013-09-30 05:22:46, 175 stars, 58 forks
+       2,774 commits, last change: 2013-10-29 04:12:26, 180 stars, 58 forks
 
     yanosz/bbkeys:
       tinc-keys for backbone vpn
@@ -85,7 +85,7 @@
 
     Youscribe/tinc-cookbook:
       Chef cookbook to manage/install a tinc cluster
-       20 commits, last change: 2012-08-06 06:25:16, 2 stars, 2 forks
+       20 commits, last change: 2013-07-18 04:01:59, 2 stars, 2 forks
 
     zmap/zmap:
       ZMap Internet Scanner
