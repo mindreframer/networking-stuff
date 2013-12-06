@@ -13,7 +13,7 @@
   - http://redecentralize.org/interviews/
   - https://www.zerotier.com/
   - https://github.com/ntoll/drogulus
-  - https://github.com/cjdelisle/cjdns
+  - https://github.com/cjdelisle/cjdns - http://cjdns.info/
   - https://github.com/zerotier/ZeroTierOne
   - http://projectmeshnet.org/
   - [forest-net- Overlay network for large, real-time distributed applications](https://code.google.com/p/forest-net/)
