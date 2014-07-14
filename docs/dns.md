@@ -1,0 +1,4 @@
+## Naming Schemes:
+  - [A PROPER SERVER NAMING SCHEME, 2014.07](http://mnx.io/blog/a-proper-server-naming-scheme/), [HN Discussion](https://news.ycombinator.com/item?id=8010247)
+  - http://namingschemes.com/
+
