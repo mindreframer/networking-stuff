@@ -4,3 +4,9 @@
 
 
   - http://engineering.wingify.com/dynamic-cdn/
+
+
+
+Servers:
+  - [Knot DNS: A high-performance, authoritative DNS server](https://lwn.net/Articles/606968/)
+    https://www.knot-dns.cz/
