@@ -30,6 +30,10 @@
 
 
 
+  - https://github.com/mwarning/KadNode - P2P DNS and more - based on a Distributed Hash Table (DHT)
+
+
+
 ## Networks for little ones (Russian)
    - http://habrahabr.ru/post/217585/
 
