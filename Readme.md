@@ -22,6 +22,7 @@
   - https://github.com/ntoll/drogulus
   - https://github.com/cjdelisle/cjdns - http://cjdns.info/
   - https://github.com/zerotier/ZeroTierOne
+  - https://github.com/cjdelisle/cjdns - Cjdns implements an encrypted IPv6 network using public-key cryptography for address allocation and a distributed hash table for routing
   - http://projectmeshnet.org/
   - [forest-net- Overlay network for large, real-time distributed applications](https://code.google.com/p/forest-net/)
 
